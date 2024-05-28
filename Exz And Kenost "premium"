@@ -142,8 +142,8 @@ Duration = 5;
 });
 end)
 Section:NewButton(" Cam Lock", "Q To Lock", function()
-getgenv().RecurringPoint = "Head"
-getgenv().Hitbox = "Head"
+getgenv().RecurringPoint = "UpperTorse"
+getgenv().Hitbox = "UpperTorse"
 getgenv().Keybind = "q"
 getgenv().AimbotStrengthAmount = 0.405
 getgenv().PredictionAmount = 10
@@ -161,8 +161,8 @@ getgenv().Enabled = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
 end)
 Section:NewButton("Aim Assist (Streamble) ", "Q To Streamble", function()
-getgenv().RecurringPoint = "Head"
-getgenv().Hitbox = "Head"
+getgenv().RecurringPoint = "UpperTorse"
+getgenv().Hitbox = "UpperTorse"
 getgenv().Keybind = "q"
 getgenv().AimbotStrengthAmount = 0.175
 getgenv().PredictionAmount = 10
@@ -180,17 +180,15 @@ getgenv().Enabled = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
 end)
 Section:NewButton("Silent Aim", "Silent Aim For Da Hood Works On Solara!", function()
-
-
-        getgenv().SilentAim = {
+getgenv().SilentAim = {
 	Settings = {
 		Enabled = true,
 		AimPart = "UpperTorso",
-		Prediction = 0.129,
+		Prediction = 0.138,
 		WallCheck = true
 	},
 	FOV = {
-		Enabled = true,
+		Enabled = false,
 		Size = 1000,
 		Filled = false,
 		Thickness = 0.66,
