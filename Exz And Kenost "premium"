@@ -1,0 +1,439 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Exz Kenost (Premium Version) ", colors)
+local Tab = Window:NewTab("Updates")
+local Section = Tab:NewSection("Updates")
+Section:NewLabel("New Silent Aim !! ")
+local Tab = Window:NewTab("Character")
+local Section = Tab:NewSection("Character")
+Section:NewButton("Zombie", "Zombie Animation", function()
+    while true do
+local Animate = game.Players.LocalPlayer.Character.Animate
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
+game.Players.LocalPlayer.Character.Humanoid.Jump = false
+wait(1)
+end
+end)
+Section:NewButton("Fake Headless And Korblox", "Fake Headless And Korblox", function()
+--by qjbnbalivemobile1#0946
+
+--Objects
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local Headless = Instance.new("TextButton")
+local OneLeg = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.new(0, 0, 0)
+main.Position = UDim2.new(0.0203577988, 0, 0.641277611, 0)
+main.Size = UDim2.new(0, 332, 0, 211)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.new(1, 0, 1)
+title.Size = UDim2.new(0, 332, 0, 31)
+title.Font = Enum.Font.GothamBold
+title.Text = " By Kenost And Exz"
+title.TextColor3 = Color3.new(0, 0, 0)
+title.TextSize = 17
+
+Headless.Name = "Headless"
+Headless.Parent = main
+Headless.BackgroundColor3 = Color3.new(0.333333, 1, 0)
+Headless.Position = UDim2.new(0.036144577, 0, 0.379146934, 0)
+Headless.Size = UDim2.new(0, 110, 0, 50)
+Headless.Font = Enum.Font.GothamBold
+Headless.Text = "Headless"
+Headless.TextColor3 = Color3.new(0, 0, 0)
+Headless.TextScaled = true
+Headless.TextSize = 10
+Headless.TextWrapped = true
+Headless.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.Head.Transparency = 1
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+if (v:IsA("Decal")) then
+v:Destroy()
+end
+end
+end)
+
+OneLeg.Name = "One Leg"
+OneLeg.Parent = main
+OneLeg.BackgroundColor3 = Color3.new(0.333333, 1, 0)
+OneLeg.Position = UDim2.new(0.614457846, 0, 0.379146934, 0)
+OneLeg.Size = UDim2.new(0, 110, 0, 50)
+OneLeg.Font = Enum.Font.GothamBold
+OneLeg.Text = "One Leg"
+OneLeg.TextColor3 = Color3.new(0, 0, 0)
+OneLeg.TextScaled = true
+OneLeg.TextSize = 14
+OneLeg.TextWrapped = true
+OneLeg.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character['Right Leg']:remove()
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.new(1, 0, 0)
+close.Position = UDim2.new(0.879518092, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 31)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.new(0, 0, 0)
+close.TextScaled = true
+close.TextSize = 14
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.new(1, 1, 1)
+openmain.Position = UDim2.new(.001, 0, .79, 0)
+openmain.Size = UDim2.new(0, 100, 0, 28)
+openmain.Active = true
+openmain.Draggable = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.new(1, 0, 0)
+open.Size = UDim2.new(0, 100, 0, 28)
+open.Font = Enum.Font.GothamBold
+open.Text = "OPEN"
+open.TextColor3 = Color3.new(0, 0, 0)
+open.TextSize = 18
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
+end)
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Locking")
+Section:NewButton("Lock Tool", "For Mobile", function()
+getgenv().keytoclick = "Q"
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = keytoclick
+tool.Activated:connect(function()
+    local vim = game:service("VirtualInputManager")
+vim:SendKeyEvent(true, keytoclick, false, game)
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+wait(0.2)
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "sus";
+Title = "sus";
+Duration = 5;
+});
+end)
+Section:NewButton(" Cam Lock", "Q To Lock", function()
+getgenv().RecurringPoint = "Head"
+getgenv().Hitbox = "Head"
+getgenv().Keybind = "q"
+getgenv().AimbotStrengthAmount = 0.405
+getgenv().PredictionAmount = 10
+getgenv().Radius = 25
+getgenv().UsePrediction = true
+getgenv().AimbotStrength = true
+getgenv().FirstPerson = true
+getgenv().ThirdPerson = true
+getgenv().TeamCheck = false
+getgenv().Enabled = true
+ 
+ 
+-- // main script use with silent aim / / -- 
+ 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
+end)
+Section:NewButton("Aim Assist (Streamble) ", "Q To Streamble", function()
+getgenv().RecurringPoint = "Head"
+getgenv().Hitbox = "Head"
+getgenv().Keybind = "q"
+getgenv().AimbotStrengthAmount = 0.175
+getgenv().PredictionAmount = 10
+getgenv().Radius = 25
+getgenv().UsePrediction = true
+getgenv().AimbotStrength = true
+getgenv().FirstPerson = true
+getgenv().ThirdPerson = true
+getgenv().TeamCheck = false
+getgenv().Enabled = true
+ 
+ 
+-- // main script use with silent aim / / -- 
+ 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
+end)
+Section:NewButton("Silent Aim", "Silent Aim For Da Hood Works On Solara!", function()
+
+
+        getgenv().SilentAim = {
+	Settings = {
+		Enabled = true,
+		AimPart = "UpperTorso",
+		Prediction = 0.129,
+		WallCheck = true
+	},
+	FOV = {
+		Enabled = true,
+		Size = 1000,
+		Filled = false,
+		Thickness = 0.66,
+		Transparency = 0.0,
+		Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+	}
+}
+local lp = game:GetService("Players").LocalPlayer
+local cc = game:GetService("Workspace").CurrentCamera
+local mouse = lp:GetMouse()
+getgenv().PredictionBackUp = getgenv().SilentAim.Settings.Prediction
+local cc = game:GetService("Workspace").CurrentCamera
+local mouse = lp:GetMouse()
+
+local Utility = {
+    Invite = "camlock",
+    BackupInvite = "VfKf5dvSYX",
+    Version = "1.0.0a",
+    Method = "UpdateMousePos",
+    AllowedPlaceIDs = {
+        2788229376, -- Da Hood
+        7213786345, -- Da Hood VC
+        9825515356, -- Hood Customs
+        5602055394, -- Hood Modded
+        7951883376, -- Hood Modded VC
+        12927359803, -- Dah Aim Trainer
+        12867571492, -- KatanaHood
+        7242996350, -- Da Hood Aim Trainer
+        12884917481, -- Da Hood Aim Trainer VC
+        11867820563, -- Dae Hood
+        12618586930, -- Dat Hood
+    }
+}
+
+if game.PlaceId == 2788229376 or game.PlaceId == 7213786345 then -- // Da Hood
+    Utility.Method = "UpdateMousePos"
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+elseif game.PlaceId == 5602055394 or game.PlaceId == 7951883376 then -- // Hood Modded
+    Utility.Method = "MousePos"
+        MainRemote = game:GetService("ReplicatedStorage").Bullets 
+elseif game.PlaceId == 12927359803 then -- // Dah Aim Trainer
+    Utility.Method = "UpdateMousePos"
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+elseif game.PlaceId == 7242996350 or game.PlaceId == 12884917481 then -- // Da Hood Aim Trainer
+    Utility.Method = "UpdateMousePos" 
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+elseif game.PlaceId == 12867571492 then -- // Katana Hood
+    Utility.Method = "UpdateMousePos"
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+elseif game.PlaceId == 11867820563 then -- // Dae Hood
+    Utility.Method = "UpdateMousePos"
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+elseif game.PlaceId == 12618586930 then -- // Dat Hood
+    Utility.Method = "UpdateMousePos"
+        MainRemote = game:GetService("ReplicatedStorage").MainEvent
+end
+
+WTS = (function(Object)
+	local ObjectVector = cc:WorldToScreenPoint(Object.Position)
+	return Vector2.new(ObjectVector.X, ObjectVector.Y)
+end)
+
+Filter = (function(obj)
+	if (obj:IsA('BasePart')) then
+		return true
+	end
+end)
+
+mousePosVector2 = (function()
+	return Vector2.new(mouse.X, mouse.Y) 
+end)
+
+getClosestBodyPart = (function()
+	local shortestDistance = math.huge
+	local bodyPart = nil
+	for _, v in next, game.Players:GetPlayers() do
+		if (v ~= lp and v.Character and v.Character:FindFirstChild("Humanoid")) then
+			for k, x in next, v.Character:GetChildren() do
+				if (Filter(x)) then
+					local Distance = (WTS(x) - mousePosVector2()).magnitude
+					if (Distance < shortestDistance) then
+						shortestDistance = Distance
+						bodyPart = x
+					end
+				end
+			end
+		end
+	end
+	return bodyPart
+end)
+local FOVCircle = Drawing.new("Circle")
+function updateFOV()
+	FOVCircle.Radius = SilentAim.FOV.Size * 3
+	FOVCircle.Visible = SilentAim.FOV.Enabled
+	FOVCircle.Transparency = SilentAim.FOV.Transparency
+	FOVCircle.Filled = SilentAim.FOV.Filled
+	FOVCircle.Color = SilentAim.FOV.Color
+	FOVCircle.Thickness = SilentAim.FOV.Thickness
+	FOVCircle.Position = Vector2.new(game:GetService("UserInputService"):GetMouseLocation().X, game:GetService("UserInputService"):GetMouseLocation().Y)
+	return FOVCircle
+end
+
+local plrService = game:GetService("Players")
+local localPlr = plrService.LocalPlayer
+local mouseLocal = localPlr:GetMouse()
+local Players, Client, Mouse, Camera =
+    game:GetService("Players"),
+    game:GetService("Players").LocalPlayer,
+    game:GetService("Players").LocalPlayer:GetMouse(),
+    game:GetService("Workspace").CurrentCamera
+
+
+function wallCheck(destination, ignore)
+	if (getgenv().SilentAim.Settings.WallCheck) then
+		local Origin = Camera.CFrame.p
+		local CheckRay = Ray.new(Origin, destination - Origin)
+		local Hit = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(CheckRay, ignore)
+		return Hit == nil
+	else
+		return true
+	end
+end
+
+function getClosestPlayerToCursor()
+	closestDist = SilentAim.FOV.Size * 3.47
+	closestPlr = nil;
+	for i, v in next, plrService:GetPlayers() do
+		pcall(function()
+			local notKO = v.Character:WaitForChild("BodyEffects")["K.O"].Value ~= true;
+			local notGrabbed = v.Character:FindFirstChild("GRABBING_COINSTRAINT") == nil
+			if v ~= localPlr and v.Character and v.Character.Humanoid.Health > 0 and notKO and notGrabbed then
+				local screenPos, cameraVisible = Camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+				if cameraVisible then
+					local distToMouse = (Vector2.new(mouseLocal.X, mouseLocal.Y) - Vector2.new(screenPos.X, screenPos.Y)).Magnitude
+					if distToMouse < closestDist and wallCheck(v.Character.Head.Position, {
+						game:GetService("Players").LocalPlayer,
+						v.Character
+					}) then
+						closestPlr = v
+						closestDist = distToMouse
+					end
+				end
+			end
+		end)
+	end
+	return closestPlr, closestDist
+end
+
+spawn(function()
+	while wait() do
+		Plr = getClosestPlayerToCursor()
+	end
+end)
+
+spawn(function()
+	while wait() do
+		if Plr ~= nil and Plr.Character.Humanoid.FloorMaterial ~= Enum.Material.Air then
+			local Ping = math.floor(game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
+			getgenv().SilentAim.Settings.Prediction = Ping / 1000 + 0.07
+		end
+	end
+end)
+
+game:GetService("RunService").Heartbeat:connect(function()
+	updateFOV()
+end)
+
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(tool)
+    if tool:IsA("Tool") then -- add a better check for if the tool is a weapon 
+        tool.Activated:Connect(function() -- fuck a :Disconnect lol
+			if Plr ~= nil then
+            	game:GetService("ReplicatedStorage").MainEvent:FireServer(Utility.Method, Plr.Character[SilentAim.Settings.AimPart].Position + (Plr.Character[SilentAim.Settings.AimPart].Velocity * SilentAim.Settings.Prediction))
+			end
+        end)
+    end
+end)
+end)
+Section:NewButton("Cframe Press Z", "Press Z", function()
+        repeat
+        wait()
+    until game:IsLoaded()
+    local L_134_ = game:service('Players')
+    local L_135_ = L_134_.LocalPlayer
+    repeat
+        wait()
+    until L_135_.Character
+    local L_136_ = game:service('UserInputService')
+    local L_137_ = game:service('RunService')
+    getgenv().Multiplier = 0.5
+    local L_138_ = true
+    local L_139_
+    L_136_.InputBegan:connect(function(L_140_arg0)
+        if L_140_arg0.KeyCode == Enum.KeyCode.LeftBracket then
+            Multiplier = Multiplier + 0.01
+            print(Multiplier)
+            wait(0.2)
+            while L_136_:IsKeyDown(Enum.KeyCode.LeftBracket) do
+                wait()
+                Multiplier = Multiplier + 0.01
+                print(Multiplier)
+            end
+        end
+        if L_140_arg0.KeyCode == Enum.KeyCode.RightBracket then
+            Multiplier = Multiplier - 0.01
+            print(Multiplier)
+            wait(0.2)
+            while L_136_:IsKeyDown(Enum.KeyCode.RightBracket) do
+                wait()
+                Multiplier = Multiplier - 0.01
+                print(Multiplier)
+            end
+        end
+        if L_140_arg0.KeyCode == Enum.KeyCode.Z then
+            L_138_ = not L_138_
+            if L_138_ == true then
+                repeat
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Multiplier
+                    game:GetService("RunService").Stepped:wait()
+                until L_138_ == false
+            end
+        end
+    end)
+end)
+local Section = Tab:NewSection("Fun")
+Section:NewButton("Infinity Yield", "Infinity Yield Gives You Admin CMDS", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+Section:NewButton("TP Tool", "Click To Tp", function()
+mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Equip to Click TP"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+-- Define the Window and create a new tab for settings
+local Tab = Window:NewTab("Settings")
+local Section = Tab:NewSection("Settings")
+Section:NewKeybind("Keybind", "Keybind", Enum.KeyCode.V, function()
+	Library:ToggleUI()
+end)
