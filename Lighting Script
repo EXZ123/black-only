@@ -164,7 +164,7 @@ Section:NewButton(" Aim Assist", "Q To Lock", function()
 getgenv().RecurringPoint = "UpperTorso"
 getgenv().Hitbox = "UpperTorso"
 getgenv().Keybind = "q"
-getgenv().AimbotStrengthAmount = 0.200
+getgenv().AimbotStrengthAmount = 0.120
 getgenv().PredictionAmount = 10
 getgenv().Radius = 25
 getgenv().UsePrediction = true
