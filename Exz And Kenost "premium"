@@ -142,8 +142,8 @@ Duration = 5;
 });
 end)
 Section:NewButton(" Cam Lock", "Q To Lock", function()
-getgenv().RecurringPoint = "UpperTorse"
-getgenv().Hitbox = "UpperTorse"
+getgenv().RecurringPoint = "UpperTorso"
+getgenv().Hitbox = "UpperTorso"
 getgenv().Keybind = "q"
 getgenv().AimbotStrengthAmount = 0.405
 getgenv().PredictionAmount = 10
@@ -160,11 +160,11 @@ getgenv().Enabled = true
  
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
 end)
-Section:NewButton("Aim Assist (Streamble) ", "Q To Streamble", function()
-getgenv().RecurringPoint = "UpperTorse"
-getgenv().Hitbox = "UpperTorse"
+Section:NewButton(" Aim Assist", "Q To Lock", function()
+getgenv().RecurringPoint = "UpperTorso"
+getgenv().Hitbox = "UpperTorso"
 getgenv().Keybind = "q"
-getgenv().AimbotStrengthAmount = 0.175
+getgenv().AimbotStrengthAmount = 0.200
 getgenv().PredictionAmount = 10
 getgenv().Radius = 25
 getgenv().UsePrediction = true
@@ -180,7 +180,6 @@ getgenv().Enabled = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
 end)
 Section:NewButton("Silent Aim", "Silent Aim For Da Hood Works On Solara!", function()
-
 getgenv().DNS = {
     General = {
         Notifications = true,
@@ -733,6 +732,9 @@ Section:NewButton("Cframe Press Z", "Press Z", function()
             end
         end
     end)
+end)
+Section:NewButton("AntiLock", "AntiLock", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/AvianProjects/Dahood/main/AntilockerV2'),true))()
 end)
 local Section = Tab:NewSection("Fun")
 Section:NewButton("Infinity Yield", "Infinity Yield Gives You Admin CMDS", function()
