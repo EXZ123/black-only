@@ -24,6 +24,7 @@ local Window = Rayfield:CreateWindow({
       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
+local Tab = Window:CreateTab("Updates", 4483362458) -- Title, Image
 local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Main Stuff")
 local Button = Tab:CreateButton({
@@ -283,6 +284,17 @@ end)
 })
 local Section = Tab:CreateSection("Other")
 local Button = Tab:CreateButton({
+   Name = "No Delay",
+   Callback = function()
+local ReplicatedStorage = game.ReplicatedStorage
+local Network = game.Network
+local Delay = ReplicatedStorage.BulletHole.Delay
+
+Delay.Position:Destroy()
+Delay.Position = 0
+   end,
+})
+local Button = Tab:CreateButton({
    Name = "No Recoil",
    Callback = function()
 -- have fun
@@ -312,17 +324,6 @@ end)
    end,
 })
 local Button = Tab:CreateButton({
-   Name = "No Delay",
-   Callback = function()
-local ReplicatedStorage = game.ReplicatedStorage
-local Network = game.Network
-local Delay = ReplicatedStorage.BulletHole.Delay
-
-Delay.Position:Destroy()
-Delay.Position = 0
-   end,
-})
-local Button = Tab:CreateButton({
    Name = "No SlowDown",
    Callback = function()
 local mt = getrawmetatable(game)
@@ -336,138 +337,216 @@ end))
    end,
 })
 local Button = Tab:CreateButton({
+   Name = "Aim Viewer",
+   Callback = function()
+    game.StarterGui:SetCore("SendNotification", {
+     Title = 'Aimviewer Loaded';
+     Text = 'Feel free to use this!';
+     Icon = 'rbxassetid://13209787743';
+     Duration = "2";
+ })
+_G.enable = false
+_G.color = Color3.fromRGB(0,0,205)
+_G.toggle_keybind = "p"
+_G.swith_nigga = 't' 
+_G.method = "MousePos"
+ 
+ 
+ 
+ 
+ 
+local rs = game:GetService("RunService")
+local localPlayer = game.Players.LocalPlayer
+local mouse = localPlayer:GetMouse()
+local target;
+ 
+ 
+ 
+function getgun()
+ for i,v in pairs(target.Character:GetChildren()) do
+     if v and (v:FindFirstChild('Default') or v:FindFirstChild('Handle') )then
+         return v
+     end
+ end
+end
+ 
+function sendnotifi(message)
+ 
+ 
+ game.StarterGui:SetCore("SendNotification", {
+     Title =  'Script Info';
+     Text = message;
+     Icon = 'rbxassetid://13209787743';
+     Duration = "2";
+ })
+ 
+ end
+ 
+ 
+function get_closet()
+ local a = math.huge
+ local b;
+ 
+ 
+ 
+ for i, v in pairs(game.Players:GetPlayers()) do
+     if v ~= localPlayer and v.Character and v.Character:FindFirstChild("Head") and  v.Character:FindFirstChild("HumanoidRootPart")  then
+         local c = game.Workspace.CurrentCamera:WorldToViewportPoint(v.Character.PrimaryPart.Position)
+         local d = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(c.X, c.Y)).Magnitude
+ 
+         if a > d then
+             b = v
+             a = d
+         end
+     end
+ end
+ 
+ return b
+end
+ 
+ 
+mouse.KeyDown:Connect(function(z)
+ if z == _G.toggle_keybind then
+     if _G.enable == false then
+         _G.enable = true
+         sendnotifi("Aim-Viewer Enabled")
+     elseif _G.enable == true then
+         _G.enable = false 
+         sendnotifi("Aim-Viewer Disabled")
+     end
+ end
+end)
+ 
+mouse.KeyDown:Connect(function(z)
+ if z == _G.swith_nigga then
+     target = get_closet()
+     sendnotifi("targeting: "..tostring(target.DisplayName))
+ end
+end)
+ 
+local a=Instance.new("Beam")a.Segments=1;a.Width0=0.2;a.Width1=0.2;a.Color=ColorSequence.new(_G.color)a.FaceCamera=true;local b=Instance.new("Attachment")local c=Instance.new("Attachment")a.Attachment0=b;a.Attachment1=c;a.Parent=workspace.Terrain;b.Parent=workspace.Terrain;c.Parent=workspace.Terrain
+ 
+task.spawn(function()
+ rs.RenderStepped:Connect(function()
+ 
+ local character = localPlayer.Character
+     if not character then
+     a.Enabled = false
+     return
+ end
+ 
+ 
+ 
+ 
+ 
+ 
+ if _G.enable  and getgun() and target.Character:FindFirstChild("BodyEffects") and target.Character:FindFirstChild("Head")  then
+     a.Enabled = true
+     b.Position =  target.Character:FindFirstChild("Head").Position
+     c.Position = target.Character.BodyEffects[_G.method].Value ---edit this if some random ass game got some weird ass other name :palingface
+ else
+     a.Enabled = false
+ end
+ 
+ end)
+end)
+ 
+ 
+getgenv().VelocityChanger = false
+getgenv().Velocity = Vector3.new(200,700,200)
+getgenv().KeyBind = "z"
+ 
+local Players     = game:GetService("Players")
+local RunService  = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+ 
+local LocalPlayer = Players.LocalPlayer
+local Character   = LocalPlayer.Character
+local RootPart    = Character:FindFirstChild("HumanoidRootPart")
+ 
+ 
+local Heartbeat, RStepped, Stepped = RunService.Heartbeat, RunService.RenderStepped, RunService.Stepped
+ 
+LocalPlayer.CharacterAdded:Connect(function(NewCharacter)
+ Character = NewCharacter
+end)
+ 
+local RVelocity, YVelocity = nil, 0.1
+function sendnotifi(message)
+ 
+ 
+ game.StarterGui:SetCore("SendNotification", {
+     Title =  'BladeWare';
+     Text = message;
+     Icon = 'rbxassetid://13209787743';
+     Duration = "2";
+ })
+ end
+ 
+ UIS.InputBegan:Connect(function(input)
+     if input.KeyCode == Enum.KeyCode.X then
+         if VelocityChanger == false then
+             sendnotifi("Anti-Lock Disabled")
+         elseif VelocityChanger == true then
+             sendnotifi("Anti-Lock Enabled")
+         end
+     end
+ end)
+ 
+ 
+ 
+UIS.InputBegan:Connect(function(input)
+if not (UIS:GetFocusedTextBox()) then
+ if input.KeyCode == Enum.KeyCode.X then
+     if VelocityChanger then
+         VelocityChanger = false
+     else
+         VelocityChanger = true
+         task.spawn(function()
+                 while VelocityChanger do
+                     print("Running")
+                     if (not RootPart) or (not RootPart.Parent) or (not RootPart.Parent.Parent) then
+                         repeat task.wait() RootPart = Character:FindFirstChild("HumanoidRootPart") until RootPart ~= nil
+                     else
+                         RVelocity = RootPart.Velocity
+ 
+                         RootPart.Velocity = type(Velocity) == "vector" and Velocity or Velocity(RVelocity)
+ 
+                         RStepped:wait()
+ 
+                         RootPart.Velocity = RVelocity
+                     end
+                 Heartbeat:wait()
+             end
+         end)
+     end
+     end
+ end
+end) 
+   end,
+})
+local Button = Tab:CreateButton({
    Name = "Shit Talk",
    Callback = function()
 local words = {
-        'ur bad',
-        'seed',
-        'im not locking ur just bad',
-        'clown',
-        'sonned',
-        'how did u miss that many shots',
-        "you f'in loser"
+    'ur bad',
+    'seed',
+    'im not locking ur just bad',
+    'kid im not locking XDXDXDXD ur just bad',
+    'sad',
+    'sonned',
+    'how did u fail to get me',
 }
 
-
 local player = game.Players.LocalPlayer
-local keybind = 'y' -- keybind here 
+local keybind = 'y'
 
 local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
 
 player:GetMouse().KeyDown:connect(function(key)
     if key == keybind then
         event:FireServer(words[math.random(#words)], "All")
-     end
-end)
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "ESP GUI",
-   Callback = function()
-local library =
-    loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
-
-local Window = library:Window("ESPs")
-function LS(link)
-    loadstring(game:HttpGet(link))()
-end
-Window:Button(
-    "Coast's ESP",
-    function()
-        LS("https://github.com/bloodball/absolute-random-shit/raw/main/coast%20esp")
     end
-)
-Window:Button(
-    "Casp's Box ESP",
-    function()
-        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/casp")
-    end
-)
-Window:Button(
-    "UnNamed ESP",
-    function()
-        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/Unnamed")
-    end
-)
-Window:Button(
-    "Blissfull Skeleton ESP",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UNIVERSALSKELLY.lua")
-    end
-)
-Window:Button(
-    "Blissfull View Tracer",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/View%20Tracer%20ESP.lua")
-    end
-)
-Window:Button(
-    "Blissful Box ESP",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/Corner%202D%20Box%20ESP.lua")
-    end
-)
-Window:Button(
-    "Blissful Player Radar",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/PlayerRadar.lua")
-    end
-)
-Window:Button(
-    "Blissful Box ESP (2)",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/3D%20Box%20ESP/Players/Cool%20Version.lua")
-    end
-)
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Cframe",
-   Callback = function()
-     repeat
-        wait()
-    until game:IsLoaded()
-    local L_134_ = game:service('Players')
-    local L_135_ = L_134_.LocalPlayer
-    repeat
-        wait()
-    until L_135_.Character
-    local L_136_ = game:service('UserInputService')
-    local L_137_ = game:service('RunService')
-    getgenv().Multiplier = 0.5
-    local L_138_ = true
-    local L_139_
-    L_136_.InputBegan:connect(function(L_140_arg0)
-        if L_140_arg0.KeyCode == Enum.KeyCode.LeftBracket then
-            Multiplier = Multiplier + 0.01
-            print(Multiplier)
-            wait(0.2)
-            while L_136_:IsKeyDown(Enum.KeyCode.LeftBracket) do
-                wait()
-                Multiplier = Multiplier + 0.01
-                print(Multiplier)
-            end
-        end
-        if L_140_arg0.KeyCode == Enum.KeyCode.RightBracket then
-            Multiplier = Multiplier - 0.01
-            print(Multiplier)
-            wait(0.2)
-            while L_136_:IsKeyDown(Enum.KeyCode.RightBracket) do
-                wait()
-                Multiplier = Multiplier - 0.01
-                print(Multiplier)
-            end
-        end
-        if L_140_arg0.KeyCode == Enum.KeyCode.Z then
-            L_138_ = not L_138_
-            if L_138_ == true then
-                repeat
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Multiplier
-                    game:GetService("RunService").Stepped:wait()
-                until L_138_ == false
-            end
-        end
-    end)
 end)
    end,
 })
@@ -475,102 +554,7 @@ local Button = Tab:CreateButton({
    Name = "Anti Lock",
    Callback = function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/AvianProjects/Dahood/main/AntilockerV2'),true))()
-end)
-local Section = Tab:NewSection("Fun")
-Section:NewButton("Infinity Yield", "Infinity Yield Gives You Admin CMDS", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-Section:NewButton("TP Tool", "Click To Tp", function()
-mouse = game.Players.LocalPlayer:GetMouse()
-tool = Instance.new("Tool")
-tool.RequiresHandle = false
-tool.Name = "Equip to Click TP"
-tool.Activated:connect(function()
-local pos = mouse.Hit+Vector3.new(0,2.5,0)
-pos = CFrame.new(pos.X,pos.Y,pos.Z)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-end)
-tool.Parent = game.Players.LocalPlayer.Backpack
-end)
-
    end,
 })
 local Tab = Window:CreateTab("Settings", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Settings")
-local Button = Tab:CreateButton({
-   Name = "FPS BOOST",
-   Callback = function()
-local library =
-    loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
-
-local Window = library:Window("ESPs")
-function LS(link)
-    loadstring(game:HttpGet(link))()
-end
-Window:Button(
-    "Coast's ESP",
-    function()
-        LS("https://github.com/bloodball/absolute-random-shit/raw/main/coast%20esp")
-    end
-)
-Window:Button(
-    "Casp's Box ESP",
-    function()
-        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/casp")
-    end
-)
-Window:Button(
-    "UnNamed ESP",
-    function()
-        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/Unnamed")
-    end
-)
-Window:Button(
-    "Blissfull Skeleton ESP",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UNIVERSALSKELLY.lua")
-    end
-)
-Window:Button(
-    "Blissfull View Tracer",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/View%20Tracer%20ESP.lua")
-    end
-)
-Window:Button(
-    "Blissful Box ESP",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/Corner%202D%20Box%20ESP.lua")
-    end
-)
-Window:Button(
-    "Blissful Player Radar",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/PlayerRadar.lua")
-    end
-)
-Window:Button(
-    "Blissful Box ESP (2)",
-    function()
-        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/3D%20Box%20ESP/Players/Cool%20Version.lua")
-    end
-)
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "No Textures",
-   Callback = function()
-{
-    "DFIntTaskSchedulerTargetFps": 5588562,
-    "FFlagDebugDisplayFPS": false,
-    "FFlagDebugSkyGray": true,
-    "DFFlagDebugRenderForceTechnologyVoxel": true,
-    "DFFlagDebugPauseVoxelizer": true,
-    "FFlagNewLightAttenuation": true,
-    "FIntRenderShadowIntensity": 0,
-    "FFlagDisablePostFx": true,
-    "FFlagMSRefactor5": false,
-    "FStringPartTexturePackTablePre2022": "{\"foil\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[238,238,238,255]},\"asphalt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[227,227,228,234]},\"basalt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[160,160,158,238]},\"brick\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[229,214,205,227]},\"cobblestone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,219,219,243]},\"concrete\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[225,225,224,255]},\"crackedlava\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[76,79,81,156]},\"diamondplate\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[210,210,210,255]},\"fabric\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[221,221,221,255]},\"glacier\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[225,229,229,243]},\"glass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[254,254,254,7]},\"granite\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[210,206,200,255]},\"grass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[196,196,189,241]},\"ground\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[165,165,160,240]},\"ice\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[235,239,241,248]},\"leafygrass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[182,178,175,234]},\"limestone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[250,248,243,250]},\"marble\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[181,183,193,249]},\"metal\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[226,226,226,255]},\"mud\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[193,192,193,252]},\"pavement\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,218,219,236]},\"pebble\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[204,203,201,234]},\"plastic\":{\"ids\":[\"\",\"rbxassetid://13576561565\"],\"color\":[255,255,255,255]},\"rock\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[211,211,210,248]},\"corrodedmetal\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[206,177,163,180]},\"salt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[249,249,249,255]},\"sand\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,216,210,240]},\"sandstone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[241,234,230,246]},\"slate\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[235,234,235,254]},\"snow\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[239,240,240,255]},\"wood\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[217,209,208,255]},\"woodplanks\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[207,208,206,254]}}"
-}
-   end,
-})
