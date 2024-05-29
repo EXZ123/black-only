@@ -1,148 +1,35 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Exz Kenost (Premium Version) ", colors)
-local Tab = Window:NewTab("Updates")
-local Section = Tab:NewSection("Updates")
-Section:NewLabel("New Silent Aim !! ")
-local Tab = Window:NewTab("Character")
-local Section = Tab:NewSection("Character")
-Section:NewButton("Zombie", "Zombie Animation", function()
-    while true do
-local Animate = game.Players.LocalPlayer.Character.Animate
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
-game.Players.LocalPlayer.Character.Humanoid.Jump = false
-wait(1)
-end
-end)
-Section:NewButton("Fake Headless And Korblox", "Fake Headless And Korblox", function()
---by qjbnbalivemobile1#0946
-
---Objects
-local ScreenGui = Instance.new("ScreenGui")
-local main = Instance.new("Frame")
-local title = Instance.new("TextLabel")
-local Headless = Instance.new("TextButton")
-local OneLeg = Instance.new("TextButton")
-local close = Instance.new("TextButton")
-local openmain = Instance.new("Frame")
-local open = Instance.new("TextButton")
-
---Properties:
-ScreenGui.Parent = game.CoreGui
-
-main.Name = "main"
-main.Parent = ScreenGui
-main.BackgroundColor3 = Color3.new(0, 0, 0)
-main.Position = UDim2.new(0.0203577988, 0, 0.641277611, 0)
-main.Size = UDim2.new(0, 332, 0, 211)
-main.Visible = false
-main.Active = true
-main.Draggable = true
-
-title.Name = "title"
-title.Parent = main
-title.BackgroundColor3 = Color3.new(1, 0, 1)
-title.Size = UDim2.new(0, 332, 0, 31)
-title.Font = Enum.Font.GothamBold
-title.Text = " By Kenost And Exz"
-title.TextColor3 = Color3.new(0, 0, 0)
-title.TextSize = 17
-
-Headless.Name = "Headless"
-Headless.Parent = main
-Headless.BackgroundColor3 = Color3.new(0.333333, 1, 0)
-Headless.Position = UDim2.new(0.036144577, 0, 0.379146934, 0)
-Headless.Size = UDim2.new(0, 110, 0, 50)
-Headless.Font = Enum.Font.GothamBold
-Headless.Text = "Headless"
-Headless.TextColor3 = Color3.new(0, 0, 0)
-Headless.TextScaled = true
-Headless.TextSize = 10
-Headless.TextWrapped = true
-Headless.MouseButton1Down:connect(function()
-game.Players.LocalPlayer.Character.Head.Transparency = 1
-for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
-if (v:IsA("Decal")) then
-v:Destroy()
-end
-end
-end)
-
-OneLeg.Name = "One Leg"
-OneLeg.Parent = main
-OneLeg.BackgroundColor3 = Color3.new(0.333333, 1, 0)
-OneLeg.Position = UDim2.new(0.614457846, 0, 0.379146934, 0)
-OneLeg.Size = UDim2.new(0, 110, 0, 50)
-OneLeg.Font = Enum.Font.GothamBold
-OneLeg.Text = "One Leg"
-OneLeg.TextColor3 = Color3.new(0, 0, 0)
-OneLeg.TextScaled = true
-OneLeg.TextSize = 14
-OneLeg.TextWrapped = true
-OneLeg.MouseButton1Down:connect(function()
-game.Players.LocalPlayer.Character['Right Leg']:remove()
-end)
-
-close.Name = "close"
-close.Parent = main
-close.BackgroundColor3 = Color3.new(1, 0, 0)
-close.Position = UDim2.new(0.879518092, 0, 0, 0)
-close.Size = UDim2.new(0, 40, 0, 31)
-close.Font = Enum.Font.GothamBlack
-close.Text = "X"
-close.TextColor3 = Color3.new(0, 0, 0)
-close.TextScaled = true
-close.TextSize = 14
-close.TextWrapped = true
-close.MouseButton1Down:connect(function()
-main.Visible = false
-openmain.Visible = true
-end)
-
-openmain.Name = "openmain"
-openmain.Parent = ScreenGui
-openmain.BackgroundColor3 = Color3.new(1, 1, 1)
-openmain.Position = UDim2.new(.001, 0, .79, 0)
-openmain.Size = UDim2.new(0, 100, 0, 28)
-openmain.Active = true
-openmain.Draggable = true
-
-open.Name = "open"
-open.Parent = openmain
-open.BackgroundColor3 = Color3.new(1, 0, 0)
-open.Size = UDim2.new(0, 100, 0, 28)
-open.Font = Enum.Font.GothamBold
-open.Text = "OPEN"
-open.TextColor3 = Color3.new(0, 0, 0)
-open.TextSize = 18
-open.TextWrapped = true
-open.MouseButton1Down:connect(function()
-openmain.Visible = false
-main.Visible = true
-end)
-end)
-local Tab = Window:NewTab("Main")
-local Section = Tab:NewSection("Locking")
-Section:NewButton("Lock Tool", "For Mobile", function()
-getgenv().keytoclick = "Q"
-tool = Instance.new("Tool")
-tool.RequiresHandle = false
-tool.Name = keytoclick
-tool.Activated:connect(function()
-    local vim = game:service("VirtualInputManager")
-vim:SendKeyEvent(true, keytoclick, false, game)
-end)
-tool.Parent = game.Players.LocalPlayer.Backpack
-wait(0.2)
-local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
-local Notify = AkaliNotif.Notify;
-Notify({
-Description = "sus";
-Title = "sus";
-Duration = 5;
-});
-end)
-Section:NewButton(" Cam Lock", "Q To Lock", function()
-getgenv().RecurringPoint = "UpperTorso"
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Lighting Script (Premuim) ",
+   LoadingTitle = "Loading",
+   LoadingSubtitle = "By Lighting",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Main Stuff")
+local Button = Tab:CreateButton({
+   Name = "Cam Lock Q",
+   Callback = function()
+ getgenv().RecurringPoint = "UpperTorso"
 getgenv().Hitbox = "UpperTorso"
 getgenv().Keybind = "q"
 getgenv().AimbotStrengthAmount = 0.405
@@ -159,8 +46,11 @@ getgenv().Enabled = true
 -- // main script use with silent aim / / -- 
  
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
-end)
-Section:NewButton(" Aim Assist", "Q To Lock", function()
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Aim Assist (Streamble )",
+   Callback = function()
 getgenv().RecurringPoint = "UpperTorso"
 getgenv().Hitbox = "UpperTorso"
 getgenv().Keybind = "q"
@@ -174,12 +64,36 @@ getgenv().ThirdPerson = true
 getgenv().TeamCheck = false
 getgenv().Enabled = true
  
- 
 -- // main script use with silent aim / / -- 
  
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tenaaki/GenericAimbot/main/v1.0.0"))()
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Lock Tool (MOBILE)",
+   Callback = function()
+getgenv().keytoclick = "Q"
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = keytoclick
+tool.Activated:connect(function()
+    local vim = game:service("VirtualInputManager")
+vim:SendKeyEvent(true, keytoclick, false, game)
 end)
-Section:NewButton("Silent Aim", "Silent Aim For Da Hood Works On Solara!", function()
+tool.Parent = game.Players.LocalPlayer.Backpack
+wait(0.2)
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "Q Tool Information";
+Title = "Q Clicked!";
+Duration = 2.5;
+});
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Silent Aim",
+   Callback = function()
 getgenv().SilentAim = {
 	Settings = {
 		Enabled = true,
@@ -365,429 +279,152 @@ game.Players.LocalPlayer.Character.ChildAdded:Connect(function(tool)
         end)
     end
 end)
-end)
-Section:NewButton("Aim Viewer Gui", "Aim Viewer Gui", function()
-    game.StarterGui:SetCore("SendNotification", {
-     Title = 'Aimviewer Loaded';
-     Text = 'Feel free to use this!';
-     Icon = 'rbxassetid://13209787743';
-     Duration = "2";
- })
-_G.enable = false
-_G.color = Color3.fromRGB(0,0,205)
-_G.toggle_keybind = "p"
-_G.swith_nigga = 't' 
-_G.method = "MousePos"
- 
- 
- 
- 
- 
-local rs = game:GetService("RunService")
-local localPlayer = game.Players.LocalPlayer
-local mouse = localPlayer:GetMouse()
-local target;
- 
- 
- 
-function getgun()
- for i,v in pairs(target.Character:GetChildren()) do
-     if v and (v:FindFirstChild('Default') or v:FindFirstChild('Handle') )then
-         return v
-     end
- end
+   end,
+})
+local Section = Tab:CreateSection("Other")
+local Button = Tab:CreateButton({
+   Name = "No Recoil",
+   Callback = function()
+-- have fun
+        function isframework(scriptInstance)
+    if tostring(scriptInstance) == "Framework" then
+        return true
+    end
+    return false
 end
- 
-function sendnotifi(message)
- 
- 
- game.StarterGui:SetCore("SendNotification", {
-     Title =  'Script Info';
-     Text = message;
-     Icon = 'rbxassetid://13209787743';
-     Duration = "2";
- })
- 
- end
- 
- 
-function get_closet()
- local a = math.huge
- local b;
- 
- 
- 
- for i, v in pairs(game.Players:GetPlayers()) do
-     if v ~= localPlayer and v.Character and v.Character:FindFirstChild("Head") and  v.Character:FindFirstChild("HumanoidRootPart")  then
-         local c = game.Workspace.CurrentCamera:WorldToViewportPoint(v.Character.PrimaryPart.Position)
-         local d = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(c.X, c.Y)).Magnitude
- 
-         if a > d then
-             b = v
-             a = d
-         end
-     end
- end
- 
- return b
+
+function checkArgs(instance,index)
+    if tostring(instance):lower():find("camera") and tostring(index) == "CFrame" then
+        return true
+    end
+    return false
 end
- 
- 
-mouse.KeyDown:Connect(function(z)
- if z == _G.toggle_keybind then
-     if _G.enable == false then
-         _G.enable = true
-         sendnotifi("Aim-Viewer Enabled")
-     elseif _G.enable == true then
-         _G.enable = false 
-         sendnotifi("Aim-Viewer Disabled")
-     end
- end
+
+newindex = hookmetamethod(game, "__newindex", function(self,index,value)
+    local callingScr = getcallingscript()
+
+    if isframework(callingScr) and checkArgs(self,index) then
+       return;
+    end
+
+    return newindex(self,index,value)
 end)
- 
-mouse.KeyDown:Connect(function(z)
- if z == _G.swith_nigga then
-     target = get_closet()
-     sendnotifi("targeting: "..tostring(target.DisplayName))
- end
-end)
- 
-local a=Instance.new("Beam")a.Segments=1;a.Width0=0.2;a.Width1=0.2;a.Color=ColorSequence.new(_G.color)a.FaceCamera=true;local b=Instance.new("Attachment")local c=Instance.new("Attachment")a.Attachment0=b;a.Attachment1=c;a.Parent=workspace.Terrain;b.Parent=workspace.Terrain;c.Parent=workspace.Terrain
- 
-task.spawn(function()
- rs.RenderStepped:Connect(function()
- 
- local character = localPlayer.Character
-     if not character then
-     a.Enabled = false
-     return
- end
- 
- 
- 
- 
- 
- 
- if _G.enable  and getgun() and target.Character:FindFirstChild("BodyEffects") and target.Character:FindFirstChild("Head")  then
-     a.Enabled = true
-     b.Position =  target.Character:FindFirstChild("Head").Position
-     c.Position = target.Character.BodyEffects[_G.method].Value ---edit this if some random ass game got some weird ass other name :palingface
- else
-     a.Enabled = false
- end
- 
- end)
-end)
- 
- 
-getgenv().VelocityChanger = false
-getgenv().Velocity = Vector3.new(200,700,200)
-getgenv().KeyBind = "z"
- 
-local Players     = game:GetService("Players")
-local RunService  = game:GetService("RunService")
-local UIS = game:GetService("UserInputService")
- 
-local LocalPlayer = Players.LocalPlayer
-local Character   = LocalPlayer.Character
-local RootPart    = Character:FindFirstChild("HumanoidRootPart")
- 
- 
-local Heartbeat, RStepped, Stepped = RunService.Heartbeat, RunService.RenderStepped, RunService.Stepped
- 
-LocalPlayer.CharacterAdded:Connect(function(NewCharacter)
- Character = NewCharacter
-end)
- 
-local RVelocity, YVelocity = nil, 0.1
-function sendnotifi(message)
- 
- 
- game.StarterGui:SetCore("SendNotification", {
-     Title =  'BladeWare';
-     Text = message;
-     Icon = 'rbxassetid://13209787743';
-     Duration = "2";
- })
- end
- 
- UIS.InputBegan:Connect(function(input)
-     if input.KeyCode == Enum.KeyCode.X then
-         if VelocityChanger == false then
-             sendnotifi("Anti-Lock Disabled")
-         elseif VelocityChanger == true then
-             sendnotifi("Anti-Lock Enabled")
-         end
-     end
- end)
- 
- 
- 
-UIS.InputBegan:Connect(function(input)
-if not (UIS:GetFocusedTextBox()) then
- if input.KeyCode == Enum.KeyCode.X then
-     if VelocityChanger then
-         VelocityChanger = false
-     else
-         VelocityChanger = true
-         task.spawn(function()
-                 while VelocityChanger do
-                     print("Running")
-                     if (not RootPart) or (not RootPart.Parent) or (not RootPart.Parent.Parent) then
-                         repeat task.wait() RootPart = Character:FindFirstChild("HumanoidRootPart") until RootPart ~= nil
-                     else
-                         RVelocity = RootPart.Velocity
- 
-                         RootPart.Velocity = type(Velocity) == "vector" and Velocity or Velocity(RVelocity)
- 
-                         RStepped:wait()
- 
-                         RootPart.Velocity = RVelocity
-                     end
-                 Heartbeat:wait()
-             end
-         end)
-     end
-     end
- end
-end) 
-Section:NewButton("Shit Talk Press Y", "To Shit Talk Press Y", function()
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "No Delay",
+   Callback = function()
+local ReplicatedStorage = game.ReplicatedStorage
+local Network = game.Network
+local Delay = ReplicatedStorage.BulletHole.Delay
+
+Delay.Position:Destroy()
+Delay.Position = 0
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "No SlowDown",
+   Callback = function()
+local mt = getrawmetatable(game)
+local backup
+backup = hookfunction(mt.__newindex, newcclosure(function(self, key, value)
+if key == "WalkSpeed" and value < 16 then
+value = 16
+end
+return backup(self, key, value)
+end))
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Shit Talk",
+   Callback = function()
 local words = {
-    'ur bad',
-    'seed',
-    'im not locking ur just bad',
-    'kid im not locking XDXDXDXD ur just bad',
-    'sad',
-    'sonned',
-    'how did u fail to get me',
+        'ur bad',
+        'seed',
+        'im not locking ur just bad',
+        'clown',
+        'sonned',
+        'how did u miss that many shots',
+        "you f'in loser"
 }
 
+
 local player = game.Players.LocalPlayer
-local keybind = 'y'
+local keybind = 'y' -- keybind here 
 
 local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
 
 player:GetMouse().KeyDown:connect(function(key)
     if key == keybind then
         event:FireServer(words[math.random(#words)], "All")
-    end
+     end
 end)
-end)
-end)
-Section:NewButton("Trigger Bot", "Trigger Bot", function()
-local configs = {
-    main = {
-        enabled = true,
-        aimlockkey = "c",
-        prediction = 0.01125,
-        aimpart = 'HumanoidRootPart', -- Head, UpperTorso, HumanoidRootPart, LowerTorso
-        notifications = true
-    }
-}
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "ESP GUI",
+   Callback = function()
+local library =
+    loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
 
--- box / marker settings
-
-local boxsettings = {
-    box = {
-        Showbox = true,
-
-        boxsize = Vector3.new(1.45, 3.75, 1.45), -- Box Size
-        markercolor = Color3.fromRGB(1, 120, 145), -- Marrker Color
-        markersize = UDim2.new(0, 0, 0, 0) -- Marker Size
-    }
-}
-
--- dont mess with anything below
-local box = Instance.new("Part", game.Workspace)
-
-local Mouse = game.Players.LocalPlayer:GetMouse()
-
-function makemarker(Parent, Adornee, Color, Size, Size2)
-    local box = Instance.new("BillboardGui", Parent)
-    box.Name = "UwU"
-    box.Adornee = Adornee
-    box.Size = UDim2.new(Size, Size2, Size, Size2)
-    box.AlwaysOnTop = true
-
-    local a = Instance.new("Frame", box)
-    a.Size = boxsettings.box.markersize
-    a.BackgroundColor3 = Color
-
-    local g = Instance.new("UICorner", a)
-    g.CornerRadius = UDim.new(50, 25)
-    return (box)
+local Window = library:Window("ESPs")
+function LS(link)
+    loadstring(game:HttpGet(link))()
 end
-
-local Plr
-Mouse.KeyDown:Connect(function(KeyPressed)
-    if KeyPressed == (configs.main.aimlockkey) then
-        if configs.main.enabled == true then
-            configs.main.enabled = false
-            if configs.main.notifications == true then
-                Plr = FindClosestUser()
-               
-            end
-        else
-            Plr = FindClosestUser()
-            configs.main.enabled = true
-            if configs.main.notifications == true then
-            end
-        end
+Window:Button(
+    "Coast's ESP",
+    function()
+        LS("https://github.com/bloodball/absolute-random-shit/raw/main/coast%20esp")
     end
-end)
-
-game:GetService('UserInputService').InputBegan:Connect(function(key)
-    if key.KeyCode == Enum.KeyCode.K then 
-        configs.main.prediction = 0.115
-        if configs.main.notifications == true then
-        end
-    elseif key.KeyCode == Enum.KeyCode.F then 
-        configs.main.prediction = 0.096
-        if configs.main.notifications == true then
-        end
-    elseif key.KeyCode == Enum.KeyCode.G then
-        configs.main.prediction = 0.103525
-        if configs.main.notifications == true then
-        end
+)
+Window:Button(
+    "Casp's Box ESP",
+    function()
+        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/casp")
     end
-end)
-
-local data = game.Players:GetPlayers()
-function noob(player)
-    local character
-    repeat
-        wait()
-    until player.Character
-    local handler = makemarker(guimain, player.Character:WaitForChild(configs.main.aimpart),
-        Color3.fromRGB(107, 184, 255), 0.10, 8)
-    handler.Name = player.Name
-    player.CharacterAdded:connect(function(Char)
-        handler.Adornee = Char:WaitForChild("HumanoidRootPart")
-    end)
-end
-
-for i = 1, #data do
-    if data[i] ~= game.Players.LocalPlayer then
-        noob(data[i])
+)
+Window:Button(
+    "UnNamed ESP",
+    function()
+        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/Unnamed")
     end
-end
-
-game.Players.PlayerAdded:connect(function(Player)
-    noob(Player)
-end)
-
-spawn(function()
-    box.Anchored = true
-    box.CanCollide = false
-    box.Size = boxsettings.box.boxsize
-    if boxsettings.box.Showbox == true then
-        box.Transparency = 1
-    else
-        box.Transparency = 1
+)
+Window:Button(
+    "Blissfull Skeleton ESP",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UNIVERSALSKELLY.lua")
     end
-    makemarker(box, box, boxsettings.box.markercolor, 0.40, 1)
-end)
-
-function FindClosestUser()
-    local closestPlayer
-    local ShortestDistance = 300
-
-    for i, v in pairs(game.Players:GetPlayers()) do
-        if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Humanoid") and
-            v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") then
-            local pos = game:GetService "Workspace".CurrentCamera:WorldToViewportPoint(v.Character.PrimaryPart.Position)
-            local magnitude = (Vector2.new(pos.X, pos.Y) -
-                                  Vector2.new(game.Players.LocalPlayer:GetMouse().X,
-                    game.Players.LocalPlayer:GetMouse().Y)).magnitude
-            if magnitude < ShortestDistance then
-                closestPlayer = v
-                ShortestDistance = magnitude
-            end
-        end
+)
+Window:Button(
+    "Blissfull View Tracer",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/View%20Tracer%20ESP.lua")
     end
-    return closestPlayer
-end
-
-game:GetService "RunService".Stepped:connect(function()
-    if configs.main.enabled and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
-        box.CFrame = CFrame.new(Plr.Character[configs.main.aimpart].Position +
-                                    (Plr.Character.UpperTorso.Velocity * configs.main.prediction))
-    else
-        box.CFrame = CFrame.new(0, 9999, 0)
+)
+Window:Button(
+    "Blissful Box ESP",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/Corner%202D%20Box%20ESP.lua")
     end
-end)
-
---[[repeat
-    wait()
-until game:IsLoaded()
-local mt = getrawmetatable(game)
-local old = mt.__namecall
-setreadonly(mt, false)
-mt.__namecall = newcclosure(function(...)
-    local args = {...}
-    if configs.main.enabled and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
-        args[3] = Plr.Character[configs.main.aimpart].Position +
-                      (Plr.Character[configs.main.aimpart].Velocity * configs.main.prediction)
-        return old(unpack(args))
+)
+Window:Button(
+    "Blissful Player Radar",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/PlayerRadar.lua")
     end
-    return old(...)
-end)
-]]--
-
--- triggerbot 
-
-local HoldClick = false
-local Hotkey = 'v' -- Leave blank for always on
-local HotkeyToggle = true -- True if you want it to toggle on and off with a click
-
-local Players = game:GetService('Players')
-local RunService = game:GetService('RunService')
-
-local LocalPlayer = Players.LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-
-local Toggle = (Hotkey ~= '')
-local CurrentlyPressed = false
-
-Mouse.KeyDown:Connect(function(key)
-    if HotkeyToggle == true and key == Hotkey then
-        Toggle = not Toggle
-    elseif key == Hotkey then
-        Toggle = true
+)
+Window:Button(
+    "Blissful Box ESP (2)",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/3D%20Box%20ESP/Players/Cool%20Version.lua")
     end
-end)
-
-Mouse.KeyUp:Connect(function(key)
-    if HotkeyToggle ~= true and key == Hotkey then
-        Toggle = false
-    end
-end)
-
-RunService.RenderStepped:Connect(function()
-    task.wait(.25)
-    if Toggle then
-        if Mouse.Target then
-            if Mouse.Target:FindFirstChild("UwU") then
-                if HoldClick then
-                    if not CurrentlyPressed then
-                        CurrentlyPressed = true
-                        mouse1press()
-                    end
-                else
-                    mouse1click()
-                end
-            else
-                if HoldClick then
-                    CurrentlyPressed = false
-                    mouse1release()
-                end
-            end
-        end
-    end
-end)
-end)
-Section:NewButton("Cframe Press Z", "Press Z", function()
-        repeat
+)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Cframe",
+   Callback = function()
+     repeat
         wait()
     until game:IsLoaded()
     local L_134_ = game:service('Players')
@@ -832,7 +469,11 @@ Section:NewButton("Cframe Press Z", "Press Z", function()
         end
     end)
 end)
-Section:NewButton("AntiLock", "AntiLock", function()
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Anti Lock",
+   Callback = function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/AvianProjects/Dahood/main/AntilockerV2'),true))()
 end)
 local Section = Tab:NewSection("Fun")
@@ -852,46 +493,84 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack
 end)
 
--- Define the Window and create a new tab for settings
-local Tab = Window:NewTab("Settings")
-local Section = Tab:NewSection("Settings")
-Section:NewKeybind("Keybind", "Keybind", Enum.KeyCode.V, function()
-	Library:ToggleUI()
-end)
-Section:NewButton("FpsBoost", "FpsBoost", function()
-repeat task.wait() until game:IsLoaded();
+   end,
+})
+local Tab = Window:CreateTab("Settings", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Settings")
+local Button = Tab:CreateButton({
+   Name = "FPS BOOST",
+   Callback = function()
+local library =
+    loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
 
-getgenv().boostFPS = true
-
-local vim = game:GetService("VirtualInputManager")
-setfpscap(5000)
-
-game.DescendantAdded:Connect(function(d)
-  if d.Name == "MainView" and d.Parent.Name == "DevConsoleUI" and boostFPS then
-      task.wait()
-      local screen = d.Parent.Parent.Parent
-      screen.Enabled = false;
-  end
-end)
-
-vim:SendKeyEvent(true, "F9", 0, game)    
-wait()
-vim:SendKeyEvent(false, "F9", 0, game)  
-
-while true do
-  task.wait()
-  if not boostFPS then
-      continue;
-  end
- 
-
-  warn("")
- 
-  if not game:GetService("CoreGui"):FindFirstChild("DevConsoleUI", true):FindFirstChild("MainView") then
-       vim:SendKeyEvent(true, "F9", 0, game)    
-        wait()
-        vim:SendKeyEvent(false, "F9", 0, game)  
-        continue
-    end
+local Window = library:Window("ESPs")
+function LS(link)
+    loadstring(game:HttpGet(link))()
 end
-end)
+Window:Button(
+    "Coast's ESP",
+    function()
+        LS("https://github.com/bloodball/absolute-random-shit/raw/main/coast%20esp")
+    end
+)
+Window:Button(
+    "Casp's Box ESP",
+    function()
+        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/casp")
+    end
+)
+Window:Button(
+    "UnNamed ESP",
+    function()
+        LS("https://raw.githubusercontent.com/bloodball/absolute-random-shit/main/Unnamed")
+    end
+)
+Window:Button(
+    "Blissfull Skeleton ESP",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UNIVERSALSKELLY.lua")
+    end
+)
+Window:Button(
+    "Blissfull View Tracer",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/View%20Tracer%20ESP.lua")
+    end
+)
+Window:Button(
+    "Blissful Box ESP",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/Corner%202D%20Box%20ESP.lua")
+    end
+)
+Window:Button(
+    "Blissful Player Radar",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/PlayerRadar.lua")
+    end
+)
+Window:Button(
+    "Blissful Box ESP (2)",
+    function()
+        LS("https://raw.githubusercontent.com/Blissful4992/ESPs/main/3D%20Box%20ESP/Players/Cool%20Version.lua")
+    end
+)
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "No Textures",
+   Callback = function()
+{
+    "DFIntTaskSchedulerTargetFps": 5588562,
+    "FFlagDebugDisplayFPS": false,
+    "FFlagDebugSkyGray": true,
+    "DFFlagDebugRenderForceTechnologyVoxel": true,
+    "DFFlagDebugPauseVoxelizer": true,
+    "FFlagNewLightAttenuation": true,
+    "FIntRenderShadowIntensity": 0,
+    "FFlagDisablePostFx": true,
+    "FFlagMSRefactor5": false,
+    "FStringPartTexturePackTablePre2022": "{\"foil\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[238,238,238,255]},\"asphalt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[227,227,228,234]},\"basalt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[160,160,158,238]},\"brick\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[229,214,205,227]},\"cobblestone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,219,219,243]},\"concrete\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[225,225,224,255]},\"crackedlava\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[76,79,81,156]},\"diamondplate\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[210,210,210,255]},\"fabric\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[221,221,221,255]},\"glacier\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[225,229,229,243]},\"glass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[254,254,254,7]},\"granite\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[210,206,200,255]},\"grass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[196,196,189,241]},\"ground\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[165,165,160,240]},\"ice\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[235,239,241,248]},\"leafygrass\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[182,178,175,234]},\"limestone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[250,248,243,250]},\"marble\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[181,183,193,249]},\"metal\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[226,226,226,255]},\"mud\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[193,192,193,252]},\"pavement\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,218,219,236]},\"pebble\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[204,203,201,234]},\"plastic\":{\"ids\":[\"\",\"rbxassetid://13576561565\"],\"color\":[255,255,255,255]},\"rock\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[211,211,210,248]},\"corrodedmetal\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[206,177,163,180]},\"salt\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[249,249,249,255]},\"sand\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[218,216,210,240]},\"sandstone\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[241,234,230,246]},\"slate\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[235,234,235,254]},\"snow\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[239,240,240,255]},\"wood\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[217,209,208,255]},\"woodplanks\":{\"ids\":[\"rbxassetid://13576561565\",\"rbxassetid://13576561565\"],\"color\":[207,208,206,254]}}"
+}
+   end,
+})
